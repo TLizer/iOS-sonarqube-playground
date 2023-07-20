@@ -12,6 +12,10 @@ struct PersistenceController {
     let unusedString = ""
     
     let incorrectCast = "" as? Int
+    
+    func whatAmIDoing() -> Void? {
+        return nil
+    }
 
     static let shared = PersistenceController()
 
