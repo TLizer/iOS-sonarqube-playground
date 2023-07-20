@@ -1,0 +1,41 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  lane :ci_check do
+    swiftLint(
+      mode: :lint,
+      reporter: "github-actions-logging",
+      path: "TestSonarApple",
+    )
+
+    xcodebuild(
+      xcargs: "-resolvePackageDependencies -clonedSourcePackagesDirPath fastlane/build/SourcePackages",
+      raw_buildlog: true,
+    )
+
+    scan(
+      scheme: "TestSonarApple",
+      skip_build: true,
+      device: "iPhone 11",
+      result_bundle: true,
+      xcargs: "-skipPackagePluginValidation",
+      disable_package_automatic_updates: true,
+      derived_data_path: "fastlane/build",
+    )
+  end
+end
