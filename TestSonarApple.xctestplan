@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "7D6A1AC9-ABC9-4AF0-BB6D-F2C40A1E69B5",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:TestSonarApple.xcodeproj",
+          "identifier" : "AE7E34952A67FD990078A142",
+          "name" : "TestSonarApple"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TestSonarApple.xcodeproj",
+      "identifier" : "AE7E34952A67FD990078A142",
+      "name" : "TestSonarApple"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:TestSonarApple.xcodeproj",
+        "identifier" : "AE7E34AF2A67FDEB0078A142",
+        "name" : "TestSonarAppleTests"
+      }
+    }
+  ],
+  "version" : 1
+}
