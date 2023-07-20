@@ -9,12 +9,14 @@ import CoreData
 
 struct PersistenceController {
     
+    let unusedString = ""
+    
+    let incorrectCast = "" as? Int
+
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
-        let unusedString = ""
-        let incorrectCast = "" as? Int
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
             let newItem = Item(context: viewContext)
